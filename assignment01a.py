@@ -1,89 +1,16 @@
-"""
-Assignment 1-A
-==============
+nouns = [
+    "malt", "rat", "cat", "dog", "cow with the crumpled horn", "maiden all forlorn",
+    "man all tatter'd and torn", "priest all shaven and shorn", "cock that crow'd in the morn",
+    "farmer sowing his corn"
+]
+verbs = [
+    "ate", "kill'd", "worried", "tossed", "milk'd", "kissed", "married", "waked", "kept"
+]
+data = dict(zip(nouns, verbs))
+introductions = [f"\nThis is the {noun}," for noun in nouns]
+actions = [f"\nThat {item[1]} the {item[0]}," for item in data.items()]
 
-Update the Python script below to make it more compact and readable; use at least variables and f-strings.
-For those who are already familiar with Python – write the best code you can to conform to the Zen of Python.
-
-"""
-
-poem = '''
-This is the house that Jack built.
-
-This is the malt 
-That lay in the house that Jack built.
-
-This is the rat, 
-That ate the malt 
-That lay in the house that Jack built.
-
-This is the cat, 
-That kill'd the rat, 
-That ate the malt 
-That lay in the house that Jack built.
-
-This is the dog, 
-That worried the cat, 
-That kill'd the rat, 
-That ate the malt 
-That lay in the house that Jack built.
-
-This is the cow with the crumpled horn, 
-That toss'd the dog, 
-That worried the cat, 
-That kill'd the rat, 
-That ate the malt 
-That lay in the house that Jack built.
-
-This is the maiden all forlorn, 
-That milk'd the cow with the crumpled horn, 
-That tossed the dog, 
-That worried the cat, 
-That kill'd the rat, 
-That ate the malt 
-That lay in the house that Jack built.
-
-This is the man all tatter'd and torn, 
-That kissed the maiden all forlorn, 
-That milk'd the cow with the crumpled horn,
-That tossed the dog, 
-That worried the cat, 
-That kill'd the rat, 
-That ate the malt 
-That lay in the house that Jack built.
-
-This is the priest all shaven and shorn, 
-That married the man all tatter'd and torn, 
-That kissed the maiden all forlorn, 
-That milked the cow with the crumpled horn,
-That tossed the dog, 
-That worried the cat, 
-That kill'd the rat, 
-That ate the malt 
-That lay in the house that Jack built.
-
-This is the cock that crow'd in the morn, 
-That waked the priest all shaven and shorn, 
-That married the man all tatter'd and torn, 
-That kissed the maiden all forlorn, 
-That milk'd the cow with the crumpled horn, 
-That tossed the dog, 
-That worried the cat, 
-That kill'd the rat, 
-That ate the malt 
-That lay in the house that Jack built.
-
-This is the farmer sowing his corn, 
-That kept the cock that crow'd in the morn, 
-That waked the priest all shaven and shorn,
-That married the man all tatter'd and torn, 
-That kissed the maiden all forlorn, 
-That milk'd the cow with the crumpled horn,
-That tossed the dog, 
-That worried the cat, 
-That killed the rat, 
-That ate the malt 
-That lay in the house that Jack built.
-'''
-
-print(poem)
+print("This is the house that Jack built.")
+for i in range(len(actions)):
+    print(introductions[i]+"".join(actions[:i][::-1]))
+    print("That lay in the house that Jack built.")
