@@ -6,11 +6,11 @@ nouns = [
 verbs = [
     "ate", "kill'd", "worried", "toss'd", "milk'd", "kissed", "married", "waked", "kept"
 ]
-data = dict(zip(nouns, verbs))
+
 introductions = [f"\nThis is the {noun}," for noun in nouns]
-actions = [f"\nThat {item[1]} the {item[0]}," for item in data.items()]
+actions = [f"That {verb} the {noun}," for verb,noun in zip(verbs,nouns)]
 
 print("This is the house that Jack built.")
 for i in range(len(nouns)):
-    print(introductions[i]+"".join(actions[:i][::-1]))
+    print(introductions[i]+"\n".join(actions[:i][::-1]))
     print("That lay in the house that Jack built.")
