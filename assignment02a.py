@@ -34,7 +34,7 @@ def poem():
             p += '\n'+'\n'.join(actions[:i][::-1])
         p += '\nThat lay in the house that Jack built.\n'
     
-    return p[:-1]
+    return p
 
 
 if __name__ == '__main__':
