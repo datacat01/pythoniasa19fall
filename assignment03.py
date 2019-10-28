@@ -1,11 +1,14 @@
+import string
+import random
 
-def task1():
+def task1(start=2000, end=3200):
     """
     Write a program which will find all such numbers which are divisible by 7 but are not a multiple of 5,
     between 2000 and 3200 (both included). The numbers obtained should be printed in a comma-separated sequence
     on a single line.
     """
-    # todo: write your code here
+    l = [str(i) for i in range(start, end+1) if (i%5!=0)and(i%7==0)]
+    return ','.join(l)
 
 
 def task2(rows, cols):
@@ -20,7 +23,8 @@ def task2(rows, cols):
     >>> task2(3, 5)
     [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
     """
-    # todo: write your code here
+    a = [[i*j for i in range(cols)] for j in range(rows)]
+    return a
 
 
 def task3(password):
@@ -51,7 +55,12 @@ def task3(password):
     >>> task3('2We3345')
     False
     """
-    # todo: write your code here
+    return (
+        6 <= len(password) <= 12
+        and any('a' <= i <= 'z' for i in password)
+        and any('A' <= i <= 'Z' for i in password)
+        and any(i in '$#@' for i in password)
+    )
 
 
 def task4():
@@ -59,7 +68,11 @@ def task4():
     Write password generator function that uses the same rules as in Task 3.
     The password generator function must be able to generate all possible correct passwords.
     """
-    # todo: write your code here
+    characters = string.ascii_letters + string.digits + '$#@'
+    while True:
+        password =  "".join(random.choice(characters) for x in range(random.randint(6, 13)))
+        if task3(password)==True:
+            return password
 
 
 if __name__ == '__main__':
